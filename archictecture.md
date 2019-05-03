@@ -1,24 +1,24 @@
 PROJET WEB LAVERIES
 
-SITE
-(disponible a tous)
--s’authentifier
-	-page initiale
-		-historique des machines
-			(machine)
-			(laverie)
-			(date)
-		-voir les laveries
-			(montre les batiments) 
-			(note laverie batiment)
-			-noter laverie du batiment 
-			-voir machine
-				(montre les infos en temps reel)
-				(voir liste d’attente)
-				(informer un probleme)
-				(note de la machine)	
-				-reserver une machine
-				-noter la machine (1-5 etoiles)
+	SITE
+	(disponible a tous)
+	-s’authentifier
+		-page initiale
+			-historique des machines
+				(machine)
+				(laverie)
+				(date)
+			-voir les laveries
+				(montre les batiments) 
+				(note laverie batiment)
+				-noter laverie du batiment 
+				-voir machine
+					(montre les infos en temps reel)
+					(voir liste d’attente)
+					(informer un probleme)
+					(note de la machine)	
+					-reserver une machine
+					-noter la machine (1-5 etoiles)
 								
 				
 	(mode admin)
