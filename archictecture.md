@@ -73,12 +73,12 @@ pour l’instant on va utiliser django pour les utilisateurs, mais dans un momen
 		-batiment
 		-historique des machines
 
-	-batiment	
-		-machines
+	
 
 	-machine
 		-historique des utilisateurs et des commandes
-	-etat actuel
+		-etat actuel
+		-batiment
 
 
 
