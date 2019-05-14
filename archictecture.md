@@ -75,7 +75,7 @@ TODO (mercredi 15 mai):
 		actualiser api pour avoir les types des machines et le numero pour la laveries
 		faire interfaace admin en django pour repondre aux problemes
 		faire marcher l’authentification pour l’admin
-		charger la base de donnes  django avec les machines api (atomatique?)
+		charger la base de donnes  django avec les machines api (automatique?)
 		afficher les etats des machines en temps reel
 
 
