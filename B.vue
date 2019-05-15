@@ -2,13 +2,33 @@
     <div>
         Batiment B
 
-        <p>I can put whatever I want here </p>
+        <p>Choisissez les horaires de disponibilité des machines </p>
+		<v-toolbar >
+
+			<v-overflow-btn
+			  :items="dropdown_edit"
+			  editable
+			  label="Horaire de début"
+			  hide-details
+			  class="pa-5"
+			  overflow
+			></v-overflow-btn>
+
+			<v-divider
+			  class="mr-5"
+			  vertical
+			></v-divider>
+			<v-overflow-btn
+			  :items="dropdown_edit"
+			  editable
+			  label="Horaire de fin"
+			  hide-details
+			  class="pa-5"
+			  overflow
+			></v-overflow-btn>
+		  </v-toolbar>
         
-        <div id="example">example: {{ message }}</div>
-        <div id="message">msg: </div>
-        
-        
-        
+		<p></p>
         <v-btn color="info"
         @click="showMachines()"
         >Show Machines</v-btn>
@@ -27,10 +47,27 @@ export default {
   /*mounted() {
     return axios.get('http://127.0.0.1:8000/machine/info/blabla/db',{headers: {'Access-Control-Allow-Credentials': true}})
     },*/
-    data: {
-    // declare message with an empty value
-    //message: 'Foo'
-  },
+      data () {
+      return {
+        dropdown_edit: [
+          { text: '10' },
+          { text: '11' },
+          { text: '12' },
+          { text: '13' },
+          { text: '14' },
+		  { text: '15' },
+		  { text: '16' },
+		  { text: '17' },
+		  { text: '18' },
+		  { text: '19' },
+		  { text: '20' },
+		  { text: '21' },
+		  { text: '22' },
+		  { text: '12' }
+        ]
+      
+      }
+	  },
     //template: '<div>{{ message }}</div>',
     methods: {
       showMachines : function (){
@@ -50,10 +87,7 @@ export default {
         });
        //this.push({message: 'new message'});
         //alert(test);
-
       }
   }
 }
-
-
 </script>
