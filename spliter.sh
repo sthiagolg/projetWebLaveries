@@ -6,7 +6,7 @@ M="testM"
 F="testF"
 B="testB"
 
-input="/home/aeredren/Documents/INSA/Telecom/projetWeb/projetWebLaveries/table.csv"
+input="./table.csv"
 
 while IFS= read -r var
 do
