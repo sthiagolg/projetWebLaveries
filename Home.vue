@@ -64,11 +64,11 @@ export default {
   }*/
   methods: {
     redirectTo : function (key){
-      if (key=='Laveries'){
-        router.push("/laveries");
-    }else{
-      router.push("/auth");
-    }
+      if (key=='Informer un Problème'){
+        router.push("/informerProbleme");
+      }else{
+      router.push("/"+key);
+        }
     }
 
   },
@@ -77,7 +77,11 @@ export default {
       return {
         items: [
           { title: 'Laveries', icon: 'dashboard' },
-          { title: 'Auth', icon: 'question_answer' }
+          { title: 'Informer un Problème', icon: 'question_answer' },
+          
+          /*{ title: 'Auth', icon: 'question_answer' },*/
+          { title: 'Admin', icon: 'question_answer' },
+          { title: 'About', icon: 'dashboard' }
         ],
         right: null
       }

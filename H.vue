@@ -1,13 +1,12 @@
 <template>
-    <div>
-        <h1>Bâtiment B</h1>
+	<div>
+        <h1>Bâtiment H</h1>
 		<p></p>
 
         <h2>Choisissez les horaires de disponibilité des machines </h2>
 		<p></p>
 		
 		<v-toolbar >
-			
 			<v-overflow-btn
 			  :items="date"
 			  editable
@@ -43,7 +42,7 @@
 			  class="pa-5"
 			  overflow
 			></v-overflow-btn>
-			<v-divider
+		  	<v-divider
 			  class="mr-5"
 			  vertical
 			></v-divider>
@@ -54,21 +53,19 @@
         
 		<p></p>
         <v-btn large color="info"
-        @click="showMachines('B')"
+        @click="showMachines('H')"
         >Show Machines available now</v-btn>
 				<br><br><br>
 				<h2 id="machines"></h2>
-        
-	
     </div>
 </template>
 
 <script>
 import router from "../../../index.js";
 import axios from 'axios';
-import B from '@/components/pages/batiments/B.vue'
+import H from '@/components/pages/batiments/H.vue'
 export default {
-  name: "B",
+  name: "H",
   //el: '#example-1',
   /*mounted() {
     return axios.get('http://127.0.0.1:8000/machine/info/blabla/db',{headers: {'Access-Control-Allow-Credentials': true}})
@@ -102,13 +99,10 @@ export default {
     //template: '<div>{{ message }}</div>',
     methods: {
       showMachines : function (batiment){
-				
-
-					var date = new Date();
+      var date = new Date();
 					//var minutes = date.getMinutes();
 					var hour = date.getHours();
 					var minutes = date.getMinutes();
-						
        //this.$set(message, "hello")    
        
        //document.getElementById('example').value = "thiago";

@@ -100,13 +100,13 @@ Access-Control-Allow-Headers: 'Origin, Content-Type, X-Auth-Token';*/
             if (this.$refs.form.validate()) {
               this.loading = true;
               axios.post('http://localhost:8000/auth/', this.credentials).then(res => {
-                alert("deu certo login")
+                //alert("deu certo login")
                 this.$session.start();
                 this.$session.set('token', res.data.token);
-                router.push('/home');
+                router.push('/admin');
               }).catch(() => {
                 this.loading = false;
-                alert("deu errado login!!!")
+                alert("Mauvais mot de passe ou mauvais utilisateur!!!")
                 //console.error(e);
                 swal({
                   type: 'warning',

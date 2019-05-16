@@ -2,23 +2,34 @@
     <div>
         Page des Laveries
 
-        <p>I can put whatever I want here </p>
-        <v-btn color="info" @click="redirectTo('B')">B</v-btn>
-        
-        
-        <v-btn color="info">D</v-btn>
-        <v-btn color="info">E</v-btn>
-        <v-btn color="info">F</v-btn>
-        <v-btn color="info">G/J</v-btn>
-        <v-btn color="info">H</v-btn>
-        <v-btn color="info">I</v-btn>
-    </div>
+        <h1 >Choisissez le bâtiment que vous souhaitez</h1>
+		<v-container>
+				<v-btn large color="info" @click="redirectTo('B')">B </v-btn>
+		
+				<v-btn large color="info" @click="redirectTo('D')">D</v-btn>
+				<v-btn large color="info" @click="redirectTo('E')">E</v-btn>
+
+				<v-btn large  color="info" @click="redirectTo('F')" >F</v-btn>
+
+				<v-btn large color="info" @click="redirectTo('G')">G/J</v-btn>
+
+				<v-btn large  color="info" @click="redirectTo('H')">H</v-btn>
+
+				<v-btn large color="info" @click="redirectTo('I')">I</v-btn>
+		
+		
+		
+			<v-img :src="require('../../assets/plan.jpg')" />
+	</v-container>
+		  
+	</div>
 </template>
 
 <script>
 import router from "../../index.js";
 export default {
   name: "Laveries",
+
   /*mounted() {
     this.checkLoggedIn();
   },*/
@@ -30,4 +41,13 @@ export default {
       }
   }
 }
+
 </script>
+
+
+
+<style>
+  .p  {
+    font-size: 4em;
+  }
+</style>

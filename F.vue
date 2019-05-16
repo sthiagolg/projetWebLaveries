@@ -1,13 +1,11 @@
 <template>
     <div>
-        <h1>Bâtiment B</h1>
+        <h1>Bâtiment F</h1>
 		<p></p>
 
         <h2>Choisissez les horaires de disponibilité des machines </h2>
 		<p></p>
-		
 		<v-toolbar >
-			
 			<v-overflow-btn
 			  :items="date"
 			  editable
@@ -21,7 +19,6 @@
 			  class="mr-5"
 			  vertical
 			></v-divider>
-			
 			<v-overflow-btn
 			  :items="dropdown_edit"
 			  editable
@@ -52,23 +49,23 @@
 			>Show Machines</v-btn>			
 		  </v-toolbar>
         
+		  
+        
 		<p></p>
         <v-btn large color="info"
-        @click="showMachines('B')"
+        @click="showMachines('F')"
         >Show Machines available now</v-btn>
 				<br><br><br>
 				<h2 id="machines"></h2>
-        
-	
     </div>
 </template>
 
 <script>
 import router from "../../../index.js";
 import axios from 'axios';
-import B from '@/components/pages/batiments/B.vue'
+import F from '@/components/pages/batiments/F.vue'
 export default {
-  name: "B",
+  name: "F",
   //el: '#example-1',
   /*mounted() {
     return axios.get('http://127.0.0.1:8000/machine/info/blabla/db',{headers: {'Access-Control-Allow-Credentials': true}})
@@ -96,19 +93,15 @@ export default {
           { text: 'Demain' },
           { text: 'Apès-demain' }
         ]	
-      
       }
 	  },
     //template: '<div>{{ message }}</div>',
     methods: {
       showMachines : function (batiment){
-				
-
-					var date = new Date();
+      var date = new Date();
 					//var minutes = date.getMinutes();
 					var hour = date.getHours();
 					var minutes = date.getMinutes();
-						
        //this.$set(message, "hello")    
        
        //document.getElementById('example').value = "thiago";
