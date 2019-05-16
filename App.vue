@@ -1,8 +1,10 @@
 <template>
 <div id="app">
-  <p>LAVOS. C'est la nouvelle plate-formme en ligne pour les Laveries.</p>
+  <p>                           LAVOS. C'est la nouvelle plate-forme en ligne pour les Laveries.</p>
   <v-app>
+    
    <router-view></router-view>
+   
 
   </v-app>
 </div>
@@ -18,3 +20,16 @@
   margin-top: 5px;
 }
 </style>
+<script>
+
+export default{
+
+  components:{
+    
+
+  }
+
+}
+
+</script>
+

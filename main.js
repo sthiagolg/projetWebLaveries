@@ -5,7 +5,7 @@ import router from "./index.js"
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import VueSession from 'vue-session'
-import B from '@/components/pages/batiments/B.vue'
+
 
 Vue.use(Vuetify)
 Vue.use(VueSession)
