@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+      		<h1>Laveries BdE Problèmes</h1>
+
+            <h3>Problèmes non traités:</h3>
+
+     		 {% for probleme in  problemes.all %}
+                    <a href="{% url 'detail' probleme.id %}">  <h3>{{ probleme.date }} : {{ probleme.resolution }} - {{ probleme.batiment }} - {{ probleme.nom }}</h3></a>
+
+     		 {% endfor %}
+            {% if not problemes %}
+                Pas de problèmes recents
+            {% endif %}
+            <br>
+            <br>
+            <h3>Liste complète:</h3>
+
+     		 {% for probleme in  allproblemes.all %}
+                    <a href="{% url 'detail' probleme.id %}">  <h3>{{ probleme.date }} : {{ probleme.resolution }} - {{ probleme.batiment }} - {{ probleme.nom }}</h3></a>
+
+     		 {% endfor %}
+
+
+
+</center>
+	</body>
+</html>

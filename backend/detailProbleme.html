@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+
+
+
+  </head>
+  <center>
+<body>
+      <h4> Laverie:  {{ probleme.batiment }} - Machine {{ probleme.machine }}</h4>
+
+        <p>Envoyé par {{ probleme.nom }}</p>
+
+        <h4>Description du problème:</h4>
+
+        <p>{{ probleme.description }}</p>
+
+
+        <p><button onclick="repondre('refusé')" type="button">Refuser</button>
+        <button onclick="repondre('accepté')" type="button">Accepter</button></p>
+
+  </body>
+</center>
+</html>
+
+
+
+<script>
+
+
+
+
+    function repondre(status) {
+
+        //alert(id);
+
+
+        window.location.href = status
+
+    }
+
+
+</script>

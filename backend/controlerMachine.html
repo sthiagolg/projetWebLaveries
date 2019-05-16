@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+
+
+
+  </head>
+  <body>
+  <center>
+      		<h1>Controler Machine</h1>
+<br><br>
+            <p>Batiment:</p>
+            <input list="batiments" name="laveries" id="laveries">
+                  <datalist id="batiments">
+                    <option value="B">
+                    <option value="D">
+                    <option value="E">
+                    <option value="F">
+                    <option value="G-J">
+                      <option value="H">
+                      <option value="I">
+                  </datalist>
+      <br><br>
+      <p>Numero de machine:</p>
+            <input list="machines" name="machine" id="machine">
+                  <datalist id="machines">
+                    <option value="1">
+                    <option value="2">
+                    <option value="3">
+                    <option value="4">
+                    <option value="5">
+                      <option value="6">
+                      <option value="7">
+                      <option value="8">
+                      <option value="9">
+                      <option value="10">
+                      <option value="11">
+                      <option value="12">
+                  </datalist>
+
+      <br>
+      <p>Action:</p>
+            <input list="action" name="comande" id="comande">
+                  <datalist id="action">
+                    <option value="Allumer">
+                    <option value="Etendre">
+
+
+                  </datalist>
+ <br><br>
+        <button onclick="sendComand()" type="button">Envoyer Commande</button>
+
+
+
+</center>
+</body>
+</html>
+
+
+
+<script>
+
+
+
+
+    function sendComand() {
+
+        //alert(id);
+        var comande = document.getElementById('comande').value;
+        var machine = document.getElementById('machine').value;
+        var laveries = document.getElementById('laveries').value;
+
+        window.location.href= "http://127.0.0.1:8000/laveries/controler/"+laveries+'/'+machine+'/'+comande;
+
+        //alert(comande);
+
+    }
+
+
+</script>
