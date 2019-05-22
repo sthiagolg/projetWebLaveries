@@ -71,4 +71,4 @@ Cette pages est généré a partir du template html probleme.html. La base de do
 
 ### [ipBackend]/laveries/problemes/[probleme_id]/
 Cet url dynamique génére une page html a partir du template detailProbleme.html. L'url est géré par urls.py et appelle la fonction **detail(request, probleme_id)** de views.py. Cette méthode utilise la méthode de django get_object_or_404 pour récupérer les information relative a ce problème s'il existe. S'il n'existe pas l'administrateur et renvoyer vers une page d'erreur 404.
-La page généré affiche la description du problème ainsi que 2 boutons : accepter ou refuser. 
+La page généré affiche la description du problème ainsi que 2 boutons : accepter ou refuser.

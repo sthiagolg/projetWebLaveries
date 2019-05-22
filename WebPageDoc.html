@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>WebPageDocumentation</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="documentation-technique-lavos---plateforme-de-laverie-en-ligne-de-linsa-lyon">Documentation technique “Lavos - plateforme de laverie en ligne de l’INSA Lyon”</h1>
+<p>Ce site est construit avec Vue pour l’interface utilisateur (frontend) et Django pour la gestion de base de données et la communication avec l’api des machines à laver de l’INSA (backend). Axios, un module javaScript, est utilisé du coté Vue pour faire des requêtes sur le backend Django.</p>
+<p>Le backend en Django questionne actuellement une api factice codée en python avec Flask simulant les données des machines à laver. Effectivement, le travail de récupérer les données des machines à laver, de les traiter et de les présenter via une api sort du cadre de ce projet et sera réaliser par le Clubelek en partenariat avec le BDE de l’INSA de Lyon.</p>
+<h2 id="vue">Vue</h2>
+<p>Les modules de Vue utilisé sont “Vuetify” et “router”. “Vuetify” est un ensemble de composant html+css+javaScript respectant la notion de Material Design de Google (boutons, bandeau, menus déroulants, …). “Router” est le module Vue pour la gestions des URLs. Il s’agit de code javaScript.</p>
+<h2 id="django">Django</h2>
+<p>Django est un web framework codé en python3. Les urls sont géré par le script url.py. Pour chaque url, ce script appelle une fonction dans views.py générant la page html à renvoyer</p>
+<h2 id="lapi-flask">l’api Flask</h2>
+<p>Flask est un web server minimaliste codé en python3. Notre api factice représente les machines à laver dans un grand objet Json. Elle nous permet de renvoyer cet objet Json, ou les information d’une machine particulière via son identifiant, de modifier notre Json via des requètes afin de changer l’état par défaut des machines à laver et d’y rajouter ou d’y enlever des machines à laver.</p>
+<hr />
+<h2 id="utilisateur">Utilisateur</h2>
+<h3 id="ipfront">[ipFront]/</h3>
+<p>Il s’agit de la page d’accueil du site. Elle présente un bandeau déroulant permettant d’accèder au pages <strong>/laveries</strong> et <strong>/auth</strong>. Lorsque les composants de ce menu déroulant sont cliqué ils appellent la méthode javaScript <strong>redirectTo</strong> avec en argument le titre de l’élément cliqué. RedirectTo importe l’ensemble des routes géré par “router”, défini dans index.js. “router” utilise le module “Router” de Vue pour charger les pages avec l’url passé en paramètre.</p>
+<h3 id="ipfrontlaveries">[ipFront]/laveries</h3>
+<p>Cette page correspond au fichier Laveries.vue. Il y a un bouton par laverie. Lorsqu’ils sont cliqués ils appellent la méthode <strong>redirectTo</strong> qui est un script javaScript. redirectTo utilise le router de index.js pour charger la page /laveries/‘key’ où key est l’identifiant de laverie correspondant (B,D,F,…)</p>
+<h3 id="ipfrontlaverieskey">[ipFront]/laveries/‘key’</h3>
+<p>Cette page est similaire pour tout les identifiants de laveries (B,D,F,…). Elles ne sont pas généré a partir d’un template, il s’agit de 7 fichiers .vue différents mais construit de manière très similaire. Cette solution très statique a été choisi car il est très peut probable qu’il y ai besoin de rajouter ou supprimer des laveries entière, ni que le nombre de laveries devienne très important et nécessite des pages généré dynamiquement.</p>
+<p>Cette page contient des menus déroulats Vuetify pour réaliser la réservation d’une machine à laver à une certaine heure, et vérifier la disponibilité d’une machine donnée. Cette fonctionalité n’est pas encore implémenté. Le bouton fait appel a la méthode javaScript <strong>verifierDisponibilite</strong> qui renvoit actuellement un message d’erreur.</p>
+<p>Cette page contient également un bouton permettant de “voir les machines”. Il fait appel à la méthode javaScript <strong>showMachines</strong>. Cette méthode utilise axios pour faire une requête au backend a l’url <strong>[ipBackend]/machine/info/‘batiment’</strong>. Les données reçus au format json sont affiché dans un champ de texte pour indiquer le nombre de machines disponibles.</p>
+<h4 id="requête-sur-ipbackendmachineinfobatiment">requête sur [ipBackend]/machine/info/‘batiment’</h4>
+<p>AAAAAA</p>
+<h3 id="ipfrontinformerprobleme">[ipFront]/informerProbleme</h3>
+<p>Cette page permet a un utilisateur de signaler un problème sur une machine a laver. Des champs de texte et des menus déroulants, qui sont des éléments de Vuetify, permettent de rentrer le nom, le batiment, le numéro de machine et une description du problème. Un bouton permet d’envoyer les information. Il fait appel a la méthode <strong>send()</strong>.</p>
+<p>Cette méthode send() renvoie un message d’erreur si tout les champs ne sont pas correctement remplis. Si les chammps sont bien remplis elle communique les données au backend a l’aide d’Axios.</p>
+<p>Axios envoie un http POST a l’url <strong>[ipBackend]/saveProblem</strong> avec un Json des données récupéré dans les champs. L’utilisateur est ensuite renvoyé sur la page d’accueil a l’aide de la méthode route.push(‘/’) défini dans index.js.</p>
+<h4 id="post-sur-ipbackendsaveproblem">Post sur [ipBackend]/saveProblem</h4>
+<p>AAAAAA</p>
+<h2 id="administrateur">Administrateur</h2>
+<h3 id="ipfrontauth">[ipFront]/auth</h3>
+<p>Cette page présente deux champs de texte Vuetify fait par défaut pour l’authentification qui permettent de rentrer nom d’utilisateur et mot de passe. La méthode <strong>login()</strong> permet de vérifier si les données rentré sont complète et correctement formatté (taille du password, caractères interdits,…). Elle envoie ensuite un http POST au backend a l’aide d’axios à l’adresse <strong>[ipBackend]/auth/</strong> avec l’identifiant et le mot de passe de l’utilisateur.</p>
+<h4 id="post-sur-ipbackendauth">Post sur [ipBackend]/auth</h4>
+<p>AAAAAA</p>
+<h3 id="ipfrontadmin">[ipFront]/admin</h3>
+<p>Cette page permet d’accédder au pages d’administration des laveries décrites ci-dessous. Elle possède juste 2 hyperliens vers les pages <strong>[ipBackend]/laveries/controler</strong> et <strong>[ipBackend]/laveries/problemes</strong>. Un script javaScript vérifie si l’utilisateur possède le token signifiant qu’il est logué sur une session valide. Si l’utilisateur n’en possède pas il est redirigé vers la page d’authentification <strong>[ipFront]/auth</strong></p>
+<h2 id="page-administrateur-géré-par-django">Page administrateur géré par Django</h2>
+<p>Ces pages sont destiné aux administrateur des laveries. On a choisi d’utiliser de simple page html plutot que de les intégré a l’application Vue. Elle ne sont pas Material Design. Ce choix a été fait car ces pages ne sont pas visible par les utilisateurs et que cela nous permet d’en laisser la gestion a notre backend Django. Ceci nous facilite la tache pour la manipulation des bases de données des laveries et des problèmes en cours car on n’a plus besoin de faire des requêtes entre notre frontend et notre backend via axios.</p>
+<h3 id="ipbackendlaveriescontroler">[ipBackend]/laveries/controler</h3>
+<p>Cette page statique correspond au fichier controlerMachine.html. Elle contient 3 champs permettant de renseigner quelle action (allumer ou éteindre) un administrateur souhaite effectué sur quelle machine dans quelle laverie. Un bouton lance un script faisant une requête à l’adresse <strong>[ipBackend]/laveries/controler/[laveries]/[machine]/[comande]</strong> #### Requête sur [ipBackend]/saveProblem AAAAAA</p>
+<h3 id="ipbackendlaveriesproblemes">[ipBackend]/laveries/problemes</h3>
+<p>Cette pages est généré a partir du template html probleme.html. La base de données des problèmes est lue dans la méthode <strong>probleme(request)</strong> définie dans views.py et appellé par urls.py. Pour chaque problème non traité dans la base de données un hyperliens est créé indiquant la date du problème, le batiment dans lequel il est et son statut. L’url vers lequel il pointe est <strong>[ipBackend]/laveries/problemes/[probleme_id]/</strong></p>
+<h3 id="ipbackendlaveriesproblemesprobleme_id">[ipBackend]/laveries/problemes/[probleme_id]/</h3>
+<p>Cet url dynamique génére une page html a partir du template detailProbleme.html. L’url est géré par urls.py et appelle la fonction <strong>detail(request, probleme_id)</strong> de views.py. Cette méthode utilise la méthode de django get_object_or_404 pour récupérer les information relative a ce problème s’il existe. S’il n’existe pas l’administrateur et renvoyer vers une page d’erreur 404. La page généré affiche la description du problème ainsi que 2 boutons : accepter ou refuser.</p>
+</body>
+</html>
